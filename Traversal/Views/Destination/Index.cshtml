@@ -1,0 +1,64 @@
+﻿@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UiLayout.cshtml";
+}
+
+<section class="w3l-about-breadcrumb text-left">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+        <div class="container">
+            <h2 class="title">Rotalar </h2>
+            <ul class="breadcrumbs-custom-path mt-2">
+                <li><a href="/Default/Index">Ana Sayfa</a></li>
+                <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Rotalar </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //about breadcrumb -->
+<!--  Work gallery section -->
+<section class="grids-1 py-5">
+    <div class="grids py-lg-5 py-md-4">
+        <div class="container">
+            <h3 class="hny-title mb-5">Destinations</h3>
+            <div class="row">
+               
+                @foreach (var item in Model)
+                {
+                    
+               
+                <div class="col-lg-4 col-md-4 col-6">
+                    <div class="column">
+                            <a href="/Destination/DestinationDetails/@item.DestinationId"><img src="@item.ImageUrl" alt="" class="img-fluid"></a>
+                        <div class="info">
+                            <h4><a href="/Destination/DestinationDetails/@item.DestinationId">@item.City</a></h4>
+                            <p>@item.DayNight </p>
+                            <div class="dst-btm">
+                                    <h6 class=""><u>Kapasite:</u>  @item.Capacity </h6>
+                                <span>@item.Price $</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Önceki</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Sonraki</a>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </div>
+</section>

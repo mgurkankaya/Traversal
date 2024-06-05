@@ -1,0 +1,87 @@
+﻿@model Traversal.Models.UserSignInViewModel
+@{
+    Layout = null;
+}
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Invent Signup Form Responsive Widget Template | Home :: W3layouts</title>
+	<!-- Meta tag Keywords -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords"
+		  content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Meta tag Keywords -->
+	<!--/Style-CSS -->
+	<link rel="stylesheet" href="~/login/css/style.css" type="text/css" media="all" />
+	<!--//Style-CSS -->
+</head>
+
+<body>
+	<!-- /login-section -->
+	<section class="w3l-login-6">
+		<div class="login-hny">
+			<div class="form-content">
+				<div class="form-right">
+					<div class="overlay">
+						<div class="grid-info-form">
+							<h5>Merhaba</h5>
+							<h3>Henüz bir hesabınız yok mu? </h3>
+							<p>
+								1 dakikadan daha kısa bir sürede hesap oluşturabilirsiniz.
+							</p>
+							<a href="/Login/SignUp" class="read-more-1 btn">Hesap Oluştur</a>
+						</div>
+
+					</div>
+				</div>
+				<div class="form-left">
+					<div class="middle">
+						<h4>Giriş Formu</h4>
+					</div>
+					<form  method="post" class="signin-form">
+						<div class="form-input">
+							<label>Name</label>
+							<input type="text" asp-for="username" placeholder="Kullanıcı Adı" required />
+						</div>
+						
+						<div class="form-input">
+							<label>Password</label>
+							<input type="password" asp-for="password" placeholder="Şifre" required />
+						</div>
+
+						<div style="color:red" asp-validation-summary="All"></div>
+						<button class="btn">Giriş Yap</button>
+					</form>
+					<div class="copy-right text-center">
+						<p>
+							© @DateTime.Now.Year MGK | Fullstack .Net Developer Bootcamp
+							<br /><a href="http://muratyucedag.com/" target="_blank">M&Y Yazılım</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+	<!-- //login-section -->
+</body>
+
+</html>
