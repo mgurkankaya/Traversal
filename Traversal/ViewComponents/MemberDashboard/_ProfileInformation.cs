@@ -1,0 +1,20 @@
+﻿using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Traversal.ViewComponents.MemberDashboard
+{
+    public class _ProfileInformation(UserManager<AppUser> _userManager) : ViewComponent
+    {
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.memberName = values.UserName + " " + values.Surname;
+            ViewBag.memberPhone = values.PhoneNumber;
+            ViewBag.memberMail = values.Email;
+
+            return View();
+        }
+    }
+}

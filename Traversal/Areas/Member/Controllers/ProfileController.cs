@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using Traversal.Areas.Member.Models;
 
 namespace Traversal.Areas.Member.Controllers
@@ -35,6 +36,7 @@ namespace Traversal.Areas.Member.Controllers
                 var stream = new FileStream(savelocation, FileMode.Create);
                 await p.Image.CopyToAsync(stream);
                 user.ImageUrl = imagename;
+               
             }
             user.Name = p.Name;
             user.Surname = p.Surname;

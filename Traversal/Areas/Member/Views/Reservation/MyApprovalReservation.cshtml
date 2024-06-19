@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "MyApprovalReservation";
+    Layout = "~/Views/Shared/UserLoyout.cshtml";
+}
+
+<h1>Onay Bekleyen Rezervasyonlar</h1>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Lokasyon</th>
+
+            <th>Kişi Sayısı</th>
+            <th>Rez.Tarihi</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.ReservationId</th>
+                <td>@item.Destination.City</td>
+              
+                <td>@item.PersonCount</td>
+                <td>@item.ReservationDate</td>
+                <td>@item.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

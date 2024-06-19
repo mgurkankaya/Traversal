@@ -6,10 +6,7 @@
 
 <h1>New Reservation</h1>
 <form method="post">
-    <div class="form-group">
-        @Html.Label("Lokasyon")
-        @Html.DropDownListFor(x => x.Destionation, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
-    </div>
+
     <div class="form-group">
         @Html.Label("Kişi Sayısı")
         <input type="text" asp-for="PersonCount" class="form-control" />
@@ -26,6 +23,6 @@
         @Html.Label("Durum")
         <input type="text" asp-for="Status" class="form-control"  />
     </div> *@
-    <button class="btn-sm btn-outline-primary">Rezervasyon Oluştur</button>
+    <button class="btn-sm btn-outline-primary" onclick="alert('Rezervasyonunuz başlangıçta onay bekliyor şeklinde alınacaktır.Rezervasyon onaylanma süreci için güncel rezervasyonlarım menüsünü takip etmeyi unutmayın');">Rezervasyon Oluştur</button>
 </form>
 

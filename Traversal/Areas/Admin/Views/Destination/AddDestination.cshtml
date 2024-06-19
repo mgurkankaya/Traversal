@@ -1,0 +1,80 @@
+﻿@model EntityLayer.Concrete.Destination
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Rota Ekle</h5>
+                    <small class="text-muted float-end">Default label</small>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" asp-for="City" placeholder="Şehir" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Açıklama</label>
+                            <textarea asp-for="Description"
+                                      class="form-control"
+                                      placeholder="Tur yapılacak şehir hakkında açıklama.."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gün-Gece</label>
+                            <input type="text" class="form-control" asp-for="DayNight" placeholder="Kaç gün kaç gece" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Fiyat</label>
+                            <input type="text" class="form-control" asp-for="Price" placeholder="Fiyat" />
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Görsel</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Görsel 1" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Görsel 2</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl2" placeholder="Görsel 2" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kapak Görseli</label>
+                            <input type="text" class="form-control" asp-for="CoverImage" placeholder="Kapak Görsel URL" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kapasite</label>
+                            <input type="text" class="form-control" asp-for="Capacity" placeholder="Kapasite" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" >Detay 1</label>
+                            <textarea asp-for="Details1"
+                                      class="form-control"
+                                      placeholder="Tur detayları bölüm 1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Detay 2</label>
+                            <textarea asp-for="Details2"
+                                      class="form-control"
+                                      placeholder="Tur detayları bölüm 2"></textarea>
+                        </div>
+                       
+                       
+                        <button type="submit" class="btn btn-primary">Oluştur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
