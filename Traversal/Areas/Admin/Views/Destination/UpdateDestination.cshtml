@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityLayer.Concrete.Destination
 @{
     ViewData["Title"] = "UpdateDestination";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -13,45 +13,70 @@
             <div class="card mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Rota Güncelle</h5>
-                    <small class="text-muted float-end">Default label</small>
+                    <small class="text-muted float-end">Tur güncelleme sayfası</small>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form method="post">
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Full Name</label>
-                            <input type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe" />
+                            <input type="hidden" class="form-control" asp-for="DestinationId"/>
+                        </div>
+                        
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Şehir Adı</label>
+                            <input type="text" class="form-control" asp-for="City" placeholder="Şehir" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-company">Company</label>
-                            <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-default-email">Email</label>
-                            <div class="input-group input-group-merge">
-                                <input type="text"
-                                       id="basic-default-email"
-                                       class="form-control"
-                                       placeholder="john.doe"
-                                       aria-label="john.doe"
-                                       aria-describedby="basic-default-email2" />
-                                <span class="input-group-text" id="basic-default-email2">example.com</span>
-                            </div>
-                            <div class="form-text">You can use letters, numbers & periods</div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-default-phone">Phone No</label>
-                            <input type="text"
-                                   id="basic-default-phone"
-                                   class="form-control phone-mask"
-                                   placeholder="658 799 8941" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="basic-default-message">Message</label>
-                            <textarea id="basic-default-message"
+                            <label class="form-label">Açıklama</label>
+                            <textarea asp-for="Description"
                                       class="form-control"
-                                      placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
+                                      placeholder="Tur yapılacak şehir hakkında açıklama.."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <div class="mb-3">
+                            <label class="form-label">Gün-Gece</label>
+                            <input type="text" class="form-control" asp-for="DayNight" placeholder="Kaç gün kaç gece" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Fiyat</label>
+                            <input type="text" class="form-control" asp-for="Price" placeholder="Fiyat" />
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="form-label">Görsel</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Görsel 1" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Görsel 2</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl2" placeholder="Görsel 2" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kapak Görseli</label>
+                            <input type="text" class="form-control" asp-for="CoverImage" placeholder="Kapak Görsel URL" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Kapasite</label>
+                            <input type="text" class="form-control" asp-for="Capacity" placeholder="Kapasite" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Detay 1</label>
+                            <textarea asp-for="Details1"
+                                      class="form-control"
+                                      placeholder="Tur detayları bölüm 1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Detay 2</label>
+                            <textarea asp-for="Details2"
+                                      class="form-control"
+                                      placeholder="Tur detayları bölüm 2"></textarea>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
                     </form>
                 </div>
             </div>
