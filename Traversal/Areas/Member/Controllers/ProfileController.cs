@@ -20,6 +20,7 @@ namespace Traversal.Areas.Member.Controllers
             userEditViewModel.Surname = values.Surname;
             userEditViewModel.PhoneNumber = values.PhoneNumber;
             userEditViewModel.Email = values.Email;
+            userEditViewModel.ImageUrl = values.ImageUrl;
             return View(userEditViewModel);
         }
 
@@ -40,6 +41,7 @@ namespace Traversal.Areas.Member.Controllers
             }
             user.Name = p.Name;
             user.Surname = p.Surname;
+            user.PhoneNumber = p.PhoneNumber;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user,p.Password);
             var result = await _userManager.UpdateAsync(user);
             if(result.Succeeded)

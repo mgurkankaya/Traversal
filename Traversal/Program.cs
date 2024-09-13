@@ -1,10 +1,34 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using BusinessLayer.Container;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ContainerDependencies();
+
+builder.Services.AddLogging(log =>
+{
+    log.ClearProviders();
+    log.AddFile($"{Directory.GetCurrentDirectory()}\\LogFile\\log.txt", LogLevel.Error);
+});
+
+//builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+//builder.Services.AddScoped<ICommentService, CommentManager>();
+
+
+//builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+//builder.Services.AddScoped<IDestinationService, DestinationManager>();
+
+//builder.Services.AddScoped<IAppUserDal, EfAppUserDal>();
+//builder.Services.AddScoped<IAppUserService, AppUserManager>();
+
 
 // Add services to the container.
 builder.Services.AddDbContext<Context>();
@@ -14,6 +38,11 @@ builder.Services.AddControllersWithViews(option =>
 	var authorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 	option.Filters.Add(new AuthorizeFilter(authorizePolicy));
 }); //Proje seviyesinde authorization
+
+
+
+
+
 
 var app = builder.Build();
 
@@ -29,7 +58,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();
-
+//app.UseStatusCodePagesWithReExecute("/ErrorPages/Error404","?code={0}");
 app.UseAuthorization();
 
 app.MapControllerRoute(

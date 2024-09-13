@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Concrete;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -7,12 +8,12 @@ namespace Traversal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("[area]/[controller]/[action]/{id?}")]
-    public class DestinationController : Controller
+    public class DestinationController(IDestinationService destinationService) : Controller
     {
-        DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        
         public IActionResult Index()
         {
-            var values = destinationManager.TGetList();
+            var values = destinationService.TGetList();
             return View(values);
         }
 
@@ -23,28 +24,30 @@ namespace Traversal.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddDestination(Destination destination)
         {
-            destinationManager.TAdd(destination);
+            destinationService.TAdd(destination);
             return RedirectToAction("Index");
         }
 
         public IActionResult DeleteDestination(int id) 
         {
-           var values = destinationManager.TGetById(id);
-            destinationManager.TDelete(values);
+           var values = destinationService.TGetById(id);
+            destinationService.TDelete(values);
             return RedirectToAction("Index");
         }
 
         public IActionResult UpdateDestination(int id)
         {
-            var values = destinationManager.TGetById(id);
+            var values = destinationService.TGetById(id);
             return View(values);
         }
 
         [HttpPost]
         public IActionResult UpdateDestination(Destination destination)
         {
-           destinationManager.TUpdate(destination);
+            destinationService.TUpdate(destination);
             return RedirectToAction("Index");
         }
+
+
     }
 }

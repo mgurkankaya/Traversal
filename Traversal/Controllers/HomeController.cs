@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Extensions;
 using System.Diagnostics;
 using Traversal.Models;
 
@@ -15,11 +16,19 @@ namespace Traversal.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Index sayfasý çaðýrýldý.");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            DateTime d =Convert.ToDateTime( DateTime.Now.ToLongDateString());
+            _logger.LogInformation(d + "Privacy sayfasý çaðýrýldý.");
+            return View();
+        }
+        public IActionResult Test()
+        {
+            _logger.LogInformation("Test sayfasý çaðýrýldý.");
             return View();
         }
 

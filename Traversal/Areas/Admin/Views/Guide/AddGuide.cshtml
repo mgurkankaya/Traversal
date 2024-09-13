@@ -1,0 +1,53 @@
+﻿@model EntityLayer.Concrete.Guide
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Rehber Ekle</h5>
+                    <small class="text-muted float-end">Yeni rehber ekleme sayfası</small>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">İsim</label>
+                            <input type="text" class="form-control" asp-for="Name" placeholder="Rehber adını girin..." />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Açıklama</label>
+                            <textarea asp-for="Description"
+                                      class="form-control"
+                                      placeholder="Rehber hakkında açıklama.."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Görsel</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Rehber görsel url'si..." />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Durum</label>
+                            <input type="text" class="form-control" asp-for="ImageUrl" placeholder="0 veya 1 değeri" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Twitter</label>
+                            <input type="text" class="form-control" asp-for="TwitterUrl" placeholder="Twitter url..." />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Instagram</label>
+                            <input type="text" class="form-control" asp-for="InstagramUrl" placeholder="Instagram url..." />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Oluştur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
