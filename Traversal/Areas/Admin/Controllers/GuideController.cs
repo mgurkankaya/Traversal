@@ -43,6 +43,13 @@ namespace Traversal.Areas.Admin.Controllers
            return RedirectToAction("Index");
         }
 
+        public IActionResult DeleteGuide(int id)
+        {
+            var value = guideService.TGetById(id);
+            guideService.TDelete(value);
+            return RedirectToAction("Index");
+        }
+       
         public IActionResult ChangeToTrue(int id)
         {
             return RedirectToAction("Index");
