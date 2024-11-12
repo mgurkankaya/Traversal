@@ -41,11 +41,11 @@
                             </td>
                                @{if (item.Status==true)
                                 {
-                                    <td><a href="#" class="btn-sm btn-outline-danger">Pasif Yap</a></td>
+                                    <td><a href="/Admin/Guide/ChangeToFalse/@item.GuideId" class="btn-sm btn-outline-danger">Pasif Yap</a></td>
                                 }
                                 else
                                 {
-                                    <td><a href="#" class="btn-sm btn-outline-success text-center">Aktif Yap</a></td>
+                                    <td><a href="/Admin/Guide/ChangeToTrue/@item.GuideId" class="btn-sm btn-outline-success text-center">Aktif Yap</a></td>
                                 }
                                 }
                             <td>

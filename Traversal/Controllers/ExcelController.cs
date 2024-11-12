@@ -1,4 +1,5 @@
-﻿using ClosedXML.Excel;
+﻿using BusinessLayer.Abstract;
+using ClosedXML.Excel;
 using DataAccessLayer.Concrete;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNetCore.Identity;
@@ -8,35 +9,22 @@ using Traversal.Models;
 
 namespace Traversal.Controllers
 {
-    public class ExcelController : Controller
+    public class ExcelController(IExcelService _excelService) : Controller
     {
+
         public IActionResult Index()
         { 
             return View();
         }
 
-        public IActionResult StaticExcelReport()
+        public IActionResult ExcelReport()
     {
-        ExcelPackage excelPackage = new ExcelPackage();
-        var workSheet = excelPackage.Workbook.Worksheets.Add("Sayfa1");
-        workSheet.Cells[1, 1].Value = "Rota";
-        workSheet.Cells[1, 2].Value = "Rehber";
-        workSheet.Cells[1, 3].Value = "Kontenjan";
+        
+        return File(_excelService.ExcelList(destinationList()), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","NewExcel.xlsx");
 
-        workSheet.Cells[2, 1].Value = "Bangkok turu";
-        workSheet.Cells[2, 2].Value = "Ahmet Mehmet";
-        workSheet.Cells[2, 3].Value = "30";
+        }
 
-        workSheet.Cells[3, 1].Value = "Moskova turu";
-        workSheet.Cells[3, 2].Value = "Ali Veli";
-        workSheet.Cells[3, 3].Value = "30";
-
-        var bytes = excelPackage.GetAsByteArray();
-
-        return File(bytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "dosya1.xlsx");
-    }
-
-    public List<DestinationModel> destinationList()
+        public List<DestinationModel> destinationList()
     {
         List<DestinationModel> destinationModels = new List<DestinationModel>();
         using (var c = new Context())

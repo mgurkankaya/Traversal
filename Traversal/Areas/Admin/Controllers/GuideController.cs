@@ -52,11 +52,13 @@ namespace Traversal.Areas.Admin.Controllers
        
         public IActionResult ChangeToTrue(int id)
         {
+            guideService.TChangeToTrueByGuide(id);
             return RedirectToAction("Index");
         }
 
         public IActionResult ChangeToFalse(int id)
         {
+            guideService.TChangeToFalseByGuide(id);
             return RedirectToAction("Index");
         }
     }
