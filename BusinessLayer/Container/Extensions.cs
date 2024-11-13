@@ -18,6 +18,8 @@ namespace BusinessLayer.Container
             services.AddScoped<ICommentDal, EfCommentDal>();
             services.AddScoped<ICommentService, CommentManager>();
 
+            services.AddScoped<IContactUsDal, EfContactUsDal>();
+            services.AddScoped<IContactUsService, ContactUsManager>();
 
             services.AddScoped<IDestinationDal, EfDestinationDal>();
             services.AddScoped<IDestinationService, DestinationManager>();
