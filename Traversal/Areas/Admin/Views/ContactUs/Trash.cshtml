@@ -2,18 +2,18 @@
 @{
     ViewData["Title"] = "Trash";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    int inboxCount = @ViewBag.inboxCount;  // Gelen kutusu bildirimi
-    int trashCount = @ViewBag.trashCount;  // Çöp kutusu bildirimi
+    int inboxCount = @ViewBag.inboxCount; 
+    int trashCount = @ViewBag.trashCount;  
 }
 
 <style>
     .table-responsive {
-        overflow: visible !important; /* Tablo içindeki kaydırmayı tamamen kaldırır */
+        overflow: visible !important; 
     }
 
     .dropdown-menu {
-        position: absolute; /* Menü bağımsız olarak dışarı taşabilir */
-        z-index: 1050; /* Menü diğer içeriklerin üzerinde görünür */
+        position: absolute; 
+        z-index: 1050; 
     }
 </style>
 
