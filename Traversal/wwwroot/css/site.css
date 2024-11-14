@@ -20,3 +20,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.error-tooltip {
+    visibility: hidden;
+    background-color: #f44336; /* Kýrmýzý renk */
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -30px; /* Input’un hemen altýna konumlandýr */
+    left: 0;
+    z-index: 1;
+    width: max-content;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+    .error-tooltip::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 10px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #f44336 transparent;
+    }
+
+.input-container.error .error-tooltip {
+    visibility: visible;
+}

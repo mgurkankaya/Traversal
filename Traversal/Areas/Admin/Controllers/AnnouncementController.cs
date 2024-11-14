@@ -33,7 +33,39 @@ namespace Traversal.Areas.Admin.Controllers
                 });
                
             }
-            return View(model);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteAnnouncement(int id)
+        {
+            var value = _announcementService.TGetById(id);
+            _announcementService.TDelete(value);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult UpdateAnnouncement(int id)
+        {
+            var value = _mapper.Map<AnnouncementUpdateDTO>(_announcementService.TGetById(id));
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateAnnouncement(AnnouncementUpdateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                _announcementService.TUpdate(new Announcement
+                {
+                    AnnouncementId = model.AnnouncementId,
+                    Title = model.Title,
+                    Content = model.Content,
+                    AnnouncementDate = Convert.ToDateTime(DateTime.Now.ToShortDateString())
+                });
+                return RedirectToAction("Index");
+            }
+            
+            return View();
         }
     }
+
 }

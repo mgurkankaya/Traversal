@@ -4,9 +4,46 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<style>
+    .table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .table-responsive {
+        overflow-x: hidden;
+    }
+
+
+
+    .tooltip-container {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: max-content;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+        }
+</style>
 
 <div class="container-xxl flex-grow-1 container-p-y">
-
     <div class="card">
         <h5 class="card-header">Duyurular</h5>
         <div class="table-responsive text-nowrap">
@@ -16,29 +53,33 @@
                         <th>#</th>
                         <th>Başlık</th>
                         <th>İçerik</th>
-                       
                         <th>İşlemler</th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
                     @foreach (var item in Model)
                     {
-
-
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.AnnouncementId</strong></td>
                             <td>@item.Title</td>
-                            <td>@item.Content.Substring(0,10) ...</td>
-                          
-                           
+                            <td>
+                                <div class="tooltip-container">
+                                    @item.Content.Substring(0, 10)...
+                                    <span class="tooltip-text">@item.Content</span>
+                                </div>
+                            </td>
                             <td>
                                 <div class="dropdown">
                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded "></i>
+                                        <i class="bx bx-dots-vertical-rounded"></i>
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId"><i class="bx bx-trash me-2"></i> Sil</a>
-                                        <a class="dropdown-item" href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId"><i class="bx bx-edit-alt me-2"></i> Güncelle</a>
+                                        <a class="dropdown-item" href="/Admin/Announcement/DeleteAnnouncement/@item.AnnouncementId">
+                                            <i class="bx bx-trash me-2"></i> Sil
+                                        </a>
+                                        <a class="dropdown-item" href="/Admin/Announcement/UpdateAnnouncement/@item.AnnouncementId">
+                                            <i class="bx bx-edit-alt me-2"></i> Güncelle
+                                        </a>
                                     </div>
                                 </div>
                             </td>
@@ -46,7 +87,6 @@
                     }
                 </tbody>
             </table>
-
         </div>
         <a href="/Admin/Announcement/AddAnnouncement" class="btn-lg btn-outline-primary text-center mt-3">Yeni Duyuru</a>
     </div>

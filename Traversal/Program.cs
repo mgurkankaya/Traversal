@@ -12,6 +12,7 @@ builder.Services.ContainerDependencies();
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.CustomValidator();
+
 builder.Services.AddControllersWithViews().AddFluentValidation();
 
 builder.Services.AddLogging(log =>
