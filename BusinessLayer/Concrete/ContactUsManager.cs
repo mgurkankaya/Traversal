@@ -28,6 +28,11 @@ namespace BusinessLayer.Concrete
             _contactUsDal.ContactUsStatusChangeToFalse(id);
         }
 
+        public void TContactUsStatusChangeToTrue(int id)
+        {
+            _contactUsDal.ContactUsStatusChangeToTrue(id);
+        }
+
         public void TDelete(ContactUs t)
         {
             _contactUsDal.Delete(t);

@@ -1,0 +1,62 @@
+﻿@model ContactUs
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <h5 class="card-header">Mesaj Detayı</h5>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Başlık:</div>
+                <div class="col-md-8">@Model.Subject</div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">E-Mail:</div>
+                <div class="col-md-8">@Model.Mail</div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Konu:</div>
+                <div class="col-md-8">@Model.Subject</div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Gönderilme Tarihi:</div>
+                <div class="col-md-8">@Model.DateSend.ToString("dd MMMM yyyy")</div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Durum:</div>
+                <div class="col-md-8">@Model.ContactUsStatus</div>
+            </div>
+            <hr />
+            <div class="row mb-3">
+                <div class="col-md-4 font-weight-bold">Mesaj İçeriği:</div>
+                <div class="col-md-8">@Model.MessageBody</div>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            @if (@Model.ContactUsStatus == true)
+            {
+            <a href="/Admin/ContactUs/ChangeToFalse/@Model.ContactUsId" class="btn btn-danger me-2">
+                <i class="fas fa-trash-alt"></i> Çöpe Taşı
+            </a>
+            }
+            else
+            {
+            <a href="/Admin/ContactUs/ChangeToTrue/@Model.ContactUsId" class="btn btn-success me-2">
+                <i class="fas fa-trash-alt"></i> Çöpten Çıkar
+            </a>
+
+            }
+            
+            <a href="/Admin/ContactUs/Index" class="btn btn-secondary">
+                <i class="fas fa-inbox"></i> Mesaj Kutusuna Dön
+            </a>
+        </div>
+    </div>
+</div>

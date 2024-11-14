@@ -12,5 +12,6 @@ namespace DataAccessLayer.Abstract
         List<ContactUs> GetListContactUsByTrue();
         List<ContactUs> GetListContactUsByFalse();
         void ContactUsStatusChangeToFalse(int id);
+        void ContactUsStatusChangeToTrue(int id);
     }
 }

@@ -22,5 +22,23 @@ namespace Traversal.Areas.Admin.Controllers
             ViewBag.trashCount = _contactUsService.TGetList().Count(x => x.ContactUsStatus == false);
             return View(value);
         }
+
+        public IActionResult ChangeToTrue(int id)
+        {
+            _contactUsService.TContactUsStatusChangeToTrue(id);
+            return RedirectToAction("Trash");
+        }
+
+        public IActionResult ChangeToFalse(int id)
+        {
+            _contactUsService.TContactUsStatusChangeToFalse(id);
+            return RedirectToAction("Index");
+        }
+        public IActionResult Detail(int id)
+        {
+            var value =_contactUsService.TGetById(id);
+            return View(value);
+        }
+
     }
 }

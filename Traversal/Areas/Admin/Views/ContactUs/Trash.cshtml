@@ -38,7 +38,7 @@
     </div>
 
     <div class="card">
-        <h5 class="card-header"> Gelen Kutusu</h5>
+        <h5 class="card-header"> Çöp Kutusu</h5>
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>
@@ -48,7 +48,8 @@
                         <th>Mail</th>
                         <th>Konu</th>
                         <th>Tarih</th>
-                        <th>İşlemler</th>
+                        <th>Durum</th>
+                       
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0 ">
@@ -58,19 +59,10 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.ContactUsId</strong></td>
                             <td>@item.Name</td>
                             <td>@item.Mail</td>
-                            <td>@item.Subject</td>
+                            <td><a class="text-primary" target="_blank" href="/Admin/ContactUs/Detail/@item.ContactUsId">@item.Subject</a></td>
                             <td>@(((DateTime)item.DateSend).ToString("dd-MMM-yyyy"))</td>
-                            <td>
-                                <div class="dropdown">
-                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="/Admin/ContactUs/DeleteContactUs/@item.ContactUsId"><i class="bx bx-trash me-2"></i> Sil</a>
-                                        <a class="dropdown-item" href="/Admin/ContactUs/UpdateContactUs/@item.ContactUsId"><i class="bx bx-edit-alt me-2"></i> Güncelle</a>
-                                    </div>
-                                </div>
-                            </td>
+                            <td><a href="/Admin/ContactUs/ChangeToTrue/@item.ContactUsId" class="btn-sm btn-outline-success">Çöpten Çıkar</a></td>
+                          
 
 
                         </tr>

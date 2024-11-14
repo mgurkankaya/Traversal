@@ -12,5 +12,6 @@ namespace BusinessLayer.Abstract
         List<ContactUs> TGetListContactUsByTrue();
         List<ContactUs> TGetListContactUsByFalse();
         void TContactUsStatusChangeToFalse(int id);
+        void TContactUsStatusChangeToTrue(int id);
     }
 }

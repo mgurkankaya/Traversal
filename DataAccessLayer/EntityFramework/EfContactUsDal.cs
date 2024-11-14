@@ -14,7 +14,20 @@ namespace DataAccessLayer.EntityFramework
     {
         public void ContactUsStatusChangeToFalse(int id)
         {
-            throw new NotImplementedException();
+            Context context = new Context();
+            var value = context.ContactUses.Find(id);
+            value.ContactUsStatus = false;
+            context.Update(value);
+            context.SaveChanges();
+        }
+
+        public void ContactUsStatusChangeToTrue(int id)
+        {
+            Context context = new Context();
+            var value = context.ContactUses.Find(id);
+            value.ContactUsStatus = true;
+            context.Update(value);
+            context.SaveChanges();
         }
 
         public List<ContactUs> GetListContactUsByFalse()
