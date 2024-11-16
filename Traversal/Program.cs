@@ -43,7 +43,7 @@ builder.Services.AddControllersWithViews(option =>
 
 
 
-
+builder.Services.AddHttpClient();
 
 
 var app = builder.Build();
