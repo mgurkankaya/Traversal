@@ -47,10 +47,44 @@ namespace Traversal.Areas.Admin.Controllers
             var responseMessage = await client.DeleteAsync($"http://localhost:5098/api/Visitor/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
+                TempData["SuccessMessage"] = "Ziyaretçi başarıyla silindi.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Ziyaretçi silinirken bir hata oluştu.";
+                return RedirectToAction("Index");
+            }
+        }
+
+        public async Task<IActionResult> UpdateVisitor(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5098/api/Visitor/{id}");
+            if(responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var value = JsonConvert.DeserializeObject<VisitorViewModel>(jsonData);
+                return View(value);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateVisitor(VisitorViewModel model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(model);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:5098/api/Visitor", content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
                 return RedirectToAction("Index");
             }
             return View();
         }
+
+
     }
 
 }
