@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ApiBookingHotelSearchViewModel.Result>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+        <h5 class="card-header">Booking API Otel Bilgileri</h5>
+        <div class="table-responsive text-nowrap">
+           
+         <div class="container">
+    <div class="row">
+        @foreach (var hotel in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@hotel.photoMainUrl" class="card-img-top" alt="@hotel.name" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@hotel.name</h5>
+                        <p class="card-text">
+                            <strong>İnceleme Puanı:</strong> @hotel.reviewScore (@hotel.reviewScoreWord)<br />
+                            <strong>Fiyat:</strong> @hotel.priceBreakdown.grossPrice.value @hotel.priceBreakdown.grossPrice.currency
+                        </p>
+                        <a href="/Details/@hotel.id" class="btn btn-primary">Detaylar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+           
+           
+        </div>
+    </div>
+</div>

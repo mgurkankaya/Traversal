@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Traversal.CQRS.Handlers.DestinationHandlers;
 using Traversal.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,7 +42,7 @@ builder.Services.AddControllersWithViews(option =>
 	option.Filters.Add(new AuthorizeFilter(authorizePolicy));
 }); //Proje seviyesinde authorization
 
-
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 
 builder.Services.AddHttpClient();
 

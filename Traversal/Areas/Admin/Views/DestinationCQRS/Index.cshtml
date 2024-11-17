@@ -1,0 +1,48 @@
+﻿@model List<GetAllDestinationQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .container-xxl {
+        overflow-x: hidden; 
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+</style>
+<div class="container-xxl flex-grow-1 container-p-y" style="overflow-x: hidden;">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">CQRS Tur Rotası Verileri</h5>
+            <a href="/Admin/DestinationCQRS/AddDestination" class="btn btn-outline-success btn-lg"><i class="bx bx-add-to-queue"></i>Yeni Tur Rotası</a>
+        </div>
+
+        <div class="row gx-3 gy-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bx bx-hotel  text-primary mb-3"></i>
+                            <h5 class="card-title text-dark" style="font-size: 30px;">@item.City</h5>
+                            <p class="card-text" style="font-size: 20px;">
+                                <strong>Kapasite:</strong> @item.Capacity
+                            </p>
+                            <p class="card-text">
+                                <strong>Gün/Gece:</strong> @item.DayNight<br />
+                                <strong>Fiyat:</strong> @item.Price
+                            </p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a class="text-danger" href="/Admin/DestinationCQRS/DeleteDestination/@item.id"><i class="bx bx-trash me-2"></i> Sil</a>
+                            <a class="text-warning" href="/Admin/DestinationCQRS/UpdateDestination/@item.id"><i class="bx bx-edit-alt me-2"></i>Güncelle</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
