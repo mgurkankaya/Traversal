@@ -1,0 +1,40 @@
+﻿@model CreateDestinationCommand
+@{
+    ViewData["Title"] = "AddDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-xxl flex-grow-1 container-p-y">
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Yeni Tur Rotası - CQRS</h5>
+                    <small class="text-warning float-end">CQRS ile yeni tur ekleme sayfası</small>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Şehir</label>
+                            <input type="text" class="form-control" asp-for="City" placeholder="Şehir adı girin" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Gün - Gece</label>
+                            <input type="text" class="form-control" asp-for="DayNight" placeholder="Kalınacak gün/gece sayısı..." />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Kapasite</label>
+                            <input type="text" class="form-control" asp-for="Capacity" placeholder="Tur kapasitesi..." />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Başlık</label>
+                            <input type="text" class="form-control" asp-for="Price" placeholder="Fiyat" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Oluştur</button>
+                        <a href="/Admin/DestinationCQRS/Index" class="btn btn-danger">İptal</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

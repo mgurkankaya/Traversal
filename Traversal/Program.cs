@@ -43,6 +43,9 @@ builder.Services.AddControllersWithViews(option =>
 }); //Proje seviyesinde authorization
 
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
 
 builder.Services.AddHttpClient();
 
