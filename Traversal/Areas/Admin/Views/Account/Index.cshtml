@@ -1,0 +1,39 @@
+﻿@model AccountViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+    <!-- Basic Layout -->
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Unit Of Work - Personel Prim Transferi</h5>
+                    <small class="text-muted float-end">Unit Of Work</small>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Gönderen</label>
+                            <input type="text" class="form-control" asp-for="SenderId" placeholder="Gönderen ID..." />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alıcı</label>
+                            <input type="text" class="form-control" asp-for="ReceiverId" placeholder="Alıcı ID..." />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Miktar</label>
+                            <input type="text" class="form-control" asp-for="Amount" placeholder="0,00" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Transfer Et</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

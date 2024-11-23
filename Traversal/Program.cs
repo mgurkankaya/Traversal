@@ -2,6 +2,7 @@ using BusinessLayer.Container;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Traversal.CQRS.Handlers.DestinationHandlers;
@@ -46,10 +47,10 @@ builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
 builder.Services.AddScoped<CreateDestinationCommandHandler>();
 builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+builder.Services.AddMediatR(typeof(Program));
 
 builder.Services.AddHttpClient();
-
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

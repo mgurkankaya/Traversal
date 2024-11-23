@@ -4,6 +4,7 @@ using MimeKit.Cryptography;
 using Traversal.CQRS.Commands.DestinationCommands;
 using Traversal.CQRS.Handlers.DestinationHandlers;
 using Traversal.CQRS.Queries.DestinationQueries;
+using Traversal.CQRS.Results.DestinationResults;
 
 namespace Traversal.Areas.Admin.Controllers
 {
@@ -15,12 +16,15 @@ namespace Traversal.Areas.Admin.Controllers
         private readonly GetDestinationByIdQueryHandler _getDestinationByIdQueryHandler;
         private readonly CreateDestinationCommandHandler _createDestinationCommandHandler;
         private readonly RemoveDestinationCommandHandler _removeDestinationCommandHandler;
-        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIdQueryHandler getDestinationByIdQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler, RemoveDestinationCommandHandler removeDestinationCommandHandler)
+        private readonly UpdateDestinationCommandHandler _updateDestinationCommandHandler;
+
+        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIdQueryHandler getDestinationByIdQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler, RemoveDestinationCommandHandler removeDestinationCommandHandler, UpdateDestinationCommandHandler updateDestinationCommandHandler)
         {
             _getAllDestinationQueryHandler = getAllDestinationQueryHandler;
             _getDestinationByIdQueryHandler = getDestinationByIdQueryHandler;
             _createDestinationCommandHandler = createDestinationCommandHandler;
             _removeDestinationCommandHandler = removeDestinationCommandHandler;
+            _updateDestinationCommandHandler = updateDestinationCommandHandler;
         }
         public IActionResult Index()
         {
@@ -32,6 +36,14 @@ namespace Traversal.Areas.Admin.Controllers
         {
             var value = _getDestinationByIdQueryHandler.Handle(new GetDestinationByIdQuery(id));
             return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult GetDestination(UpdateDestinationCommand command)
+        {
+
+            _updateDestinationCommandHandler.Handle(command);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
