@@ -84,14 +84,14 @@
 
                 <div class="d-grid left-right mt-5 pb-md-5">
                     <div class="buttons-singles tags">
-                        <h4>Tags :</h4>
+                        <h4>Etiketler :</h4>
                         <a href="#blog-tag">Travel</a>
                         <a href="#blog-tag">Culture</a>
                         <a href="#blog-tag">Hotel</a>
                         <a href="#blog-tag">Food</a>
                     </div>
                     <div class="buttons-singles">
-                        <h4>Share :</h4>
+                        <h4>Paylaş :</h4>
                         <a href="#blog-share"><span class="fa fa-facebook" aria-hidden="true"></span></a>
                         <a href="#blog-share"><span class="fa fa-twitter" aria-hidden="true"></span></a>
                         <a href="#blog-share"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
@@ -100,60 +100,7 @@
                 </div>
 
                 <!--//author-card-->
-                <div class="author-card mt-5">
-                    <div class="row align-items-center">
-                        <div class="col-sm-3 col-6">
-                            <div>
-                                <img src="assets/images/c3.jpg" alt="" class="rounded-circle img-fluid">
-                            </div>
-                        </div>
-                        <div class="col-sm-9 mt-sm-0 mt-3">
-                            <h3 class="mb-3 title">Alexander Ronald</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, sed et excepturi.
-                                Distinctio fugit odit? Fugit ipsam. Lorem ipsum dolor sit.
-                            </p>
-                            <ul class="author-icons mt-4">
-                                <li>
-                                    <a class="facebook" href="#url">
-                                        <span class="fa fa-facebook"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="twitter" href="#url">
-                                        <span class="fa fa-twitter"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="google" href="#url">
-                                        <span class="fa fa-google-plus"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="linkedin" href="#url">
-                                        <span class="fa fa-linkedin"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="github" href="#url">
-                                        <span class="fa fa-github"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dribbble" href="#url">
-                                        <span class="fa fa-dribbble"
-                                              aria-hidden="true"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("_GuideDetails")
                 
                 @await Component.InvokeAsync("_CommentVC",new{id=ViewBag.i})
                 @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")

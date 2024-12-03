@@ -20,7 +20,7 @@
 <section class="grids-1 py-5">
     <div class="grids py-lg-5 py-md-4">
         <div class="container">
-            <h3 class="hny-title mb-5">Destinations</h3>
+            <h3 class="hny-title mb-5">Turlarımız</h3>
             <div class="row">
                
                 @foreach (var item in Model)
@@ -29,7 +29,7 @@
                
                 <div class="col-lg-4 col-md-4 col-6">
                     <div class="column">
-                            <a href="/Destination/DestinationDetails/@item.DestinationId"><img src="@item.ImageUrl" alt="" class="img-fluid"></a>
+                            <a href="/Destination/DestinationDetails/@item.DestinationId"><img src="@item.ImageUrl" style="width:360px !important; height:400px !important;" alt="" class="img-fluid"></a>
                         <div class="info">
                             <h4><a href="/Destination/DestinationDetails/@item.DestinationId">@item.City</a></h4>
                             <p>@item.DayNight </p>
