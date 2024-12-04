@@ -9,6 +9,6 @@ namespace BusinessLayer.Abstract
 {
     public interface IDestinationService : IGenericService<Destination>
     {
-        public List<Destination> TGetDestinationWidthGuide(int id);
+        public Destination TGetDestinationWidthGuide(int id);
     }
 }

@@ -9,6 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IDestinationDal:IGenericDal<Destination>
     {
-        public List<Destination> GetDestinationWidthGuide(int id);
+        public Destination GetDestinationWidthGuide(int id);
     }
 }

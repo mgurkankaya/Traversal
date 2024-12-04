@@ -44,7 +44,7 @@ namespace BusinessLayer.Concrete
             return _destinationDal.GetById(id);
         }
 
-        public List<Destination> TGetDestinationWidthGuide(int id)
+        public Destination TGetDestinationWidthGuide(int id)
         {
             return _destinationDal.GetDestinationWidthGuide(id);
         }

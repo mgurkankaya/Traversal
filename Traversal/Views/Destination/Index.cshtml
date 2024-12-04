@@ -22,28 +22,23 @@
         <div class="container">
             <h3 class="hny-title mb-5">Turlarımız</h3>
             <div class="row">
-               
                 @foreach (var item in Model)
                 {
-                    
-               
-                <div class="col-lg-4 col-md-4 col-6">
-                    <div class="column">
+                    <div class="col-lg-4 col-md-4 col-6">
+                        <div class="column">
                             <a href="/Destination/DestinationDetails/@item.DestinationId"><img src="@item.ImageUrl" style="width:360px !important; height:400px !important;" alt="" class="img-fluid"></a>
-                        <div class="info">
-                            <h4><a href="/Destination/DestinationDetails/@item.DestinationId">@item.City</a></h4>
-                            <p>@item.DayNight </p>
-                            <div class="dst-btm">
+                            <div class="info">
+                                <h4><a href="/Destination/DestinationDetails/@item.DestinationId">@item.City</a></h4>
+                                <p>@item.DayNight </p>
+                                <div class="dst-btm">
                                     <h6 class=""><u>Kapasite:</u>  @item.Capacity </h6>
-                                <span>@item.Price $</span>
+                                    <span>@item.Price $</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
-
-
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">
@@ -57,8 +52,6 @@
                     </li>
                 </ul>
             </nav>
-
-
         </div>
     </div>
 </section>
