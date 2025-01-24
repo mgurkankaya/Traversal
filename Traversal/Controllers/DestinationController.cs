@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace Traversal.Controllers
 {
     [AllowAnonymous]
-
     public class DestinationController(UserManager<AppUser> _userManager) : Controller
     {
         DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());

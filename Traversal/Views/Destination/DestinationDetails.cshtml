@@ -9,7 +9,7 @@
         <div class="container">
             <h2 class="title">@Model.City Rotası Detayı</h2>
             <ul class="breadcrumbs-custom-path mt-2">
-                <li><a href="/Default/Index">Home</a></li>
+                <li><a href="/Default/Index">Anasayfa</a></li>
                 <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> @Model.City Rotası Detayı </li>
             </ul>
         </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="blog-post-info">
                 <div class="author align-items-center mb-1">
-                    <a href="#">  @Model.Guide.Name   </a> in <a href="#url">Traversal</a>
+                    <a href="#">  @Model.Guide.Name   </a> 
                 </div>
                 <ul class="blog-meta">
                     <li class="meta-item blog-lesson">
@@ -100,7 +100,36 @@
                 </div>
 
                 <!--//author-card-->
-                @await Component.InvokeAsync("_GuideDetails")
+                <div class="author-card mt-5">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3 col-6">
+                            <div>
+                                <img src="@Model.Guide.ImageUrl" alt="" class="rounded-circle img-fluid">
+                            </div>
+                        </div>
+                        <div class="col-sm-9 mt-sm-0 mt-3">
+                            <h3 class="mb-3 title">@Model.Guide.Name</h3>
+                            <p>
+                                @Model.Description
+                            </p>
+                            <ul class="author-icons mt-4">
+
+                                <li>
+                                    <a class="twitter" href="@Model.Guide.TwitterUrl">
+                                        <span class="fa fa-twitter"
+                                              aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="google" href="@Model.Guide.InstagramUrl">
+                                        <span class="fa fa-instagram"
+                                              aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 @await Component.InvokeAsync("_CommentVC",new{id=ViewBag.i})
                 @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")

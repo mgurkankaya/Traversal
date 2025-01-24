@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using BusinessLayer.ValidationRules.ContactUs;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using DTOLayer.DTOs.AppUserDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using EntityLayer.Concrete;
 
 namespace Traversal.Mapping.AutoMapperProfile
@@ -23,6 +25,8 @@ namespace Traversal.Mapping.AutoMapperProfile
 
             CreateMap<AppUserRegisterDTO, AppUser>();
             CreateMap<AppUser, AppUserRegisterDTO>();
+
+            CreateMap<SendContactUsValidator, ContactUs>().ReverseMap();
         }
     }
 }
