@@ -1,5 +1,4 @@
-﻿using SignalRApi.DAL;
-namespace Traversal.Models
+﻿namespace Traversal.Models
 {
     public class VisitorService
     {
