@@ -6,8 +6,8 @@ namespace SignalRApiForSql.DAL
     {
         public Context(DbContextOptions<Context> options) : base(options)
         {
-
         }
+
         public DbSet<Visitor> Visitors { get; set; }
     }
 }

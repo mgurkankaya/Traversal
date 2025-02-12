@@ -1,0 +1,121 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "GetSearchByName";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+    int count = 0;
+}
+
+<div class="content-wrapper">
+    <div class="content-wrapper-before"></div>
+    <div class="content-header row">
+        <div class="content-header-left col-md-4 col-12 mb-2">
+            <h3 class="content-header-title">Rotalar</h3>
+        </div>
+    </div>
+    <div class="content-body">
+
+        <!-- Basic Tables start -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Rota Ara</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <p class="card-text"> Traversal Tur Rotası Arama Sayfası</p>
+                            <form asp-action="GetSearchByName" method="get" asp-area="Member" class="mb-4">
+                                <div class="input-group">
+                                    <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Lütfen aranacak şehri girin..." />
+                                    <button type="submit" class="btn btn-outline-danger">Şehir Ara</button>
+                                </div>
+                            </form>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Şehir</th>
+                                            <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Süre</th>
+                                            <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kapasite</th>
+                                            <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fiyat</th>
+                                            <th class="text-secondary opacity-7">Detaylar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            count++;
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@count</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@item.City</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@item.DayNight</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@item.Capacity</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">@item.Price $</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <a href="/Destination/DestinationDetails/@item.DestinationId" target="_blank class="btn-sm btn-outline-info">Detay</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Basic Tables end -->
+    </div>
+</div>

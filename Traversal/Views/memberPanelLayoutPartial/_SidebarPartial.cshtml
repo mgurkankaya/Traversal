@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer localizer
+<div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true" data-img="/memberPanel/theme-assets/images/backgrounds/02.jpg">
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mr-auto">
+                <a class="navbar-brand" href="index.html">
+                    <img class="brand-logo" alt="Chameleon admin logo" src="~/memberPanel/theme-assets/images/logo/logo.png" />
+                    <h3 class="brand-text">
+                        Traversal
+                        <span style="display: inline-block; background-color: #007bff; color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; margin-left: 5px; text-transform: uppercase; vertical-align: middle;">
+                            MEMBER
+                        </span>
+                    </h3>
+
+                </a>
+            </li>
+            <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>
+        </ul>
+    </div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class=" nav-item">
+                <a href="/Member/Dashboard/MemberDashboard/"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="">@localizer["Kontrol Paneli"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Destination/Index/"><i class="ft-map"></i><span class="menu-title" data-i18n="">@localizer["Rotalar"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/LastDestinations/Index/"><i class="ft-map-pin"></i><span class="menu-title" data-i18n="">@localizer["Son Rotalar"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Profile/Index"><i class="ft-user"></i><span class="menu-title" data-i18n="">@localizer["Profilim"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Comment/Index"><i class="ft-mail"></i><span class="menu-title" data-i18n="">@localizer["Yorumlar"]</span></a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">@localizer["Rezervasyonlar"]</h6>
+            </li>
+            <li class="nav-item">
+                <a href="/Member/Reservation/NewReservation/"><i class="ft-plus-circle"></i><span class="menu-title" data-i18n="">@localizer["Oluştur"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Reservation/MyCurrentReservation/"><i class="ft-bell"></i><span class="menu-title" data-i18n="">@localizer["Aktif"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Reservation/MyOldReservation/"><i class="ft-bell-off"></i><span class="menu-title" data-i18n="">@localizer["Geçmiş"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Member/Reservation/MyApprovalReservation/"><i class="ft-watch"></i><span class="menu-title" data-i18n="">@localizer["Onay Bekleyenler"]</span></a>
+            </li>
+            <li class=" nav-item">
+                <a href="/Default/Index/" target="_blank"><i class="ft-link"></i><span class="menu-title" data-i18n="">@localizer["Siteye Git"]</span></a>
+            </li>
+        </ul>
+    </div>
+    <div class="navigation-background"></div>
+</div>

@@ -8,7 +8,6 @@ using Traversal.Areas.Member.Models;
 namespace Traversal.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
     [Route("[area]/[controller]/[action]/{id?}")]
     public class ProfileController(UserManager<AppUser> _userManager) : Controller
     {

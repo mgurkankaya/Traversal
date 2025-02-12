@@ -10,7 +10,6 @@ using System.Linq.Expressions;
 namespace Traversal.Areas.Member.Controllers
 {
     [Area("Member")]
-    [AllowAnonymous]
     [Route("[area]/[controller]/[action]/{id?}")]
     public class ReservationController(UserManager<AppUser> _userManager) : Controller
     {
@@ -45,7 +44,7 @@ namespace Traversal.Areas.Member.Controllers
         [HttpPost]
         public IActionResult NewReservation(Reservation p)
         {
-            p.AppUserId = 2;
+            p.AppUserId = 6;
             p.Status = "Onay Bekliyor";
             reservationManager.TAdd(p);
             return RedirectToAction("MyCurrentReservation");
@@ -57,6 +56,11 @@ namespace Traversal.Areas.Member.Controllers
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             var valuesList = reservationManager.TGetListWithReservationByWaitApproval(values.Id);
             return View(valuesList);
+        }
+
+        public IActionResult Try()
+        {
+            return View();
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Try";
+    Layout = "~/Views/Shared/MemberLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Basic Buttons </h4>
+        <a class="heading-elements-toggle"><i class="la la-ellipsis font-medium-3"></i></a>
+        <div class="heading-elements">
+            <ul class="list-inline mb-0">
+                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                <li><a data-action="close"><i class="ft-x"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-content collapse show">
+        <div class="card-body">
+            <p class="card-subtitle">Bootstrap includes six predefined button styles, each serving its own semantic purpose.</p>
+            <div class="form-group">
+                <!-- basic buttons -->
+                <button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1">Secondary</button>
+                <button type="button" class="btn btn-primary btn-min-width mr-1 mb-1">Primary</button>
+                <button type="button" class="btn btn-success btn-min-width mr-1 mb-1">Success</button>
+                <button type="button" class="btn btn-info btn-min-width mr-1 mb-1">Info</button>
+                <button type="button" class="btn btn-warning btn-min-width mr-1 mb-1">Warning</button>
+                <button type="button" class="btn btn-danger btn-min-width mr-1 mb-1">Danger</button>
+                <button type="button" class="btn btn-light btn-min-width mr-1 mb-1">Light</button>
+                <button type="button" class="btn btn-dark btn-min-width mr-1 mb-1">Dark</button>
+            </div>
+        </div>
+    </div>
+</div>
